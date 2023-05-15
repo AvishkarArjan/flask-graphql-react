@@ -1,0 +1,28 @@
+enum Size {
+  SMALL
+  REGULAR
+}
+
+enum CoffeeType {
+  CAPPUCCINO
+  FLAT_WHITE
+  ESPRESSO
+}
+
+type Coffee {
+  id: String!
+  size: Size!
+  name: String!
+  type: CoffeeType!
+}
+
+type Query {
+  orders: [Coffee]!
+}
+
+
+type Mutation {
+  orderCoffee(size: Size!, name: String!, type: CoffeeType!): Coffee!
+  delCoffee(order_id: ID!): Coffee!
+  updateCoffee(order_id:String! , name: String!, type:CoffeeType!, size:Size!): Coffee!
+}
